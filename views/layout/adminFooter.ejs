@@ -1,0 +1,21 @@
+</div>
+<br><br><br>
+<hr>
+<p class="text-center">&copy; cms shopping cart</p>
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+   <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+   <script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script>
+      <script src="/javascripts/editor.js"></script>
+<script >
+    $('tbody').sortable({
+
+        placeholder:"ui-state-hightlight",
+        update:function(){
+            var ids = $('tbody').sortable("serialize");
+            var url = "/admin/pages/render-pages";
+            $.post(url, ids)
+        }
+    })
+</script>
+    </body>
+</html>

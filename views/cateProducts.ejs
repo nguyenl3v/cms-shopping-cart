@@ -1,0 +1,16 @@
+<%include layout/header %>
+
+<div class="row products">
+        <%product.forEach(p=>{ %>
+            <div class="col-sm-6 col-md-3">
+                <a href="/products/<%=p.category %>/<%=p.slug %>">
+                    <img src="/product_images/<%=p.id %>/<%=p.image %>" >
+                </a>
+                <h3><%=p.title %></h3>
+                <h4><%=p.price %></h4>
+                <a href="/products/<%=p.category %>/<%=p.slug %>">View Details</a>
+            </div>
+        <%}) %>
+</div>
+
+<%include layout/footer %>

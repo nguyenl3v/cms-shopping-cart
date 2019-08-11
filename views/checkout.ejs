@@ -1,0 +1,41 @@
+<%include layout/header %>
+<% if(typeof cart !== 'undefined') {%>
+    <table class="table table-striped">
+        <tr>
+            <th>image</th>
+            <th>title</th>
+            <th>price</th>
+            <th>quantity</th>
+            <th></th>
+            <th>subtotal</th>
+        </tr>
+        <%var total = 0 ;%>
+        <%cart.forEach(p=>{ %>
+        <%var sub = parseFloat(p.qty * p.price).toFixed(2) %>
+        <% total += +sub %>
+        <tr>
+            <td><img id="adminProduct" src="<%=p.image %>"></td>
+            <td><%=p.title %></td>
+            <td><%=p.price %></td>
+            <td><%=p.qty %></td>
+            <td>
+                <a href="/cart/update/<%=p.title %>?action=add">+</a>&nbsp;
+                <a href="/cart/update/<%=p.title %>?action=remove">-</a>&nbsp;
+                <a href="/cart/update/<%=p.title %>?action=clear">clear</a>&nbsp;
+            </td>
+            <td>$<%=sub %></td>
+        </tr>
+        <%}) %>
+        <tr>
+            <td colspan="6" align="right"><b>total:</b>$<%= parseFloat(total).toFixed(2) %></td>
+        </tr>
+        <tr>
+            <td colspan="5" align="right"><a class="btn btn-danger" href="/cart/clear">clear cart</a></td>
+            <td colspan="5" align="right"><a class="btn btn-primary" href="#">buy now</a></td>
+        </tr>
+    </table>
+<%}else{ %> 
+    <h3 class="text-center">cart empty</h3>
+<%} %>
+
+<% include layout/footer %>

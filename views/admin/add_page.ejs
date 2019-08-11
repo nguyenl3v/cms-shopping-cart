@@ -1,0 +1,28 @@
+<%- include('../layout/adminHeader') %>
+<h2 class="page-title">Add a page</h2>
+<a href="/admin/pages" class="btn btn-primary">Back to all pages </a>
+<br />
+<%if(errors){ %>
+    <%errors.forEach(err=>{ %>
+        <h2><%= err.msg%></h2>
+        <h3><%= err.msg%></h3>
+    <%}) %>
+<%} %>
+<form method="post" >
+    <div class="form-group">
+        <label for="title">title</label>
+        <input type="text" name="title" id="title" class="form-control" placeholder="title" aria-describedby="helpId">
+    </div>
+    <div class="form-group">
+        <label for="slug">slug</label>
+        <input type="text" name="slug" id="slug" class="form-control"  placeholder="slug" aria-describedby="helpId">
+    </div>
+    <div class="form-group">
+        <label for="content">content</label>
+        <textarea class="form-control" name="content" id="ta" cols="30" rows="10"><%= content %></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+<%- include('../layout/adminFooter') %>

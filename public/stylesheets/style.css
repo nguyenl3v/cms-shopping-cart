@@ -1,0 +1,23 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+#imgPreview {
+  margin-top: 20px !important;
+}
+#adminProduct{
+  width:100px;
+  height: 100px;
+}
+.products img{
+  max-width: 100%;
+}
+.gallery li{
+  display: inline-block;
+}
+.gallery{
+  padding: 0px;
+}

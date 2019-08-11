@@ -1,0 +1,27 @@
+<%- include('../layout/adminHeader') %>
+<h2 class="page-title">Pages</h2>
+<a href="/admin/pages/add-pages" class="btn btn-primary">Add new pages </a>
+<br />
+<%if(success){ %>
+    <h4><%=success %></h4>
+<%} %>
+<table class="table table-striped">
+    <thead>
+        <tr class="home">
+            <th>Title</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%pages.forEach(page=>{ %>
+            <tr id="id_<%=page._id %>" class="<%=page.slug %>">
+                <th><%=page.title %></th>
+                <th><a href="/admin/pages/edit-page/<%=page.slug %>">Edit</a></th>
+                <th><a href="/admin/pages/delete-page/<%=page._id %>">Delete</a></th>
+            </tr>
+        <%}) %>
+    </tbody>
+</table>
+
+<%- include('../layout/adminFooter') %>

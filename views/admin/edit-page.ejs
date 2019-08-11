@@ -1,0 +1,33 @@
+<%- include('../layout/adminHeader') %>
+<h2 class="page-title">edit a page</h2>
+<a href="/admin/pages" class="btn btn-primary">Back to all pages </a>
+<br />
+<%if(errors){ %>
+    <%errors.forEach(err=>{ %>
+        <h2><%= err.msg%></h2>
+        <h3><%= err.msg%></h3>
+        <h3><%= err.danger%></h3>
+    <%}) %>
+<%} %>
+<%if(danger){ %>
+<h4><%=danger %></h4>
+<%} %>
+<form method="post" action="/admin/pages/edit-page">
+    <div class="form-group">
+        <label for="title">title</label>
+        <input type="text" name="title" id="title" class="form-control" value="<%=title %>" placeholder="title" aria-describedby="helpId">
+    </div>
+    <div class="form-group">
+        <label for="slug">slug</label>
+        <input type="text" name="slug" id="slug" class="form-control" value="<%=slug %>" placeholder="slug" aria-describedby="helpId">
+    </div>
+    <div class="form-group">
+        <label for="content">content</label>
+        <textarea class="form-control" name="content" id="ta" cols="30" rows="10"><%= content %></textarea>
+    </div>
+    <input name="id" value="<%=id %>" class="btn btn-primary" type="hidden" >
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+<%- include('../layout/adminFooter') %>

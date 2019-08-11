@@ -1,0 +1,41 @@
+<%- include('../layout/adminHeader') %>
+<h2 class="page-title">Product</h2>
+<a href="/admin/products/add-product" class="btn btn-primary">Add new product </a>
+<br />
+<%if(count > 0){ %>
+    
+
+<table class="table table-striped">
+    <thead>
+        <tr class="home">
+            <th>product</th>
+            <th>price</th>
+            <th>category</th>
+            <th>product image</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%product.forEach(prd=>{ %>
+            <tr>
+                <td><%=prd.title %></td>
+                <td><%=prd.price %></td>
+                <td><%=prd.category %></td>
+                <td>
+                    <%if(prd.image == ''){ %>
+                        <img src="/images/noimage.png" > 
+                    <%}else{ %>
+                        <img id="adminProduct" src="/product_images/<%=prd._id %>/<%=prd.image %>" >
+                    <%} %>
+                </td>
+                <td><a href="/admin/products/edit-product/<%=prd._id %>">Edit</a></td>
+                <td><a href="/admin/products/delete-product/<%=prd._id %>">Delete</a></td>
+            </tr>
+        <%}) %>
+    </tbody>
+</table>
+<%}else{ %>
+    <h3 class="text-center"> there are no product</h3>
+<%} %>
+<%- include('../layout/adminFooter') %>
